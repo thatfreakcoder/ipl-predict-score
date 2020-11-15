@@ -22,10 +22,10 @@ MODELS = {
 }
 
 predicted_score = None
-total_predictions = 0
+
 @app.route('/')
 def index():
-	return render_template('index.html', teams=TEAM_CODE, models=MODELS, score=predicted_score, info=MODEL_INFO, total=total_predictions)
+	return render_template('index.html', teams=TEAM_CODE, models=MODELS, score=predicted_score, info=MODEL_INFO)
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
@@ -43,7 +43,7 @@ def predict():
 		wickets_last_5 = int(req['wickets_last_5'])
 		model = MODELS[req['model']]
 		predicted_score = str(predict_score(batting_team, bowling_team, runs, wickets, overs, runs_last_5, wickets_last_5, model))
-		return render_template('predict.html', score=predicted_score, info=dict(req), model=MODEL_INFO, total=total_predictions)
+		return render_template('predict.html', score=predicted_score, info=dict(req), model=MODEL_INFO)
 
 @app.errorhandler(404)
 def error(e):
