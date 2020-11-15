@@ -1,0 +1,13 @@
+{% extends 'block.html' %}
+
+{% block subcontent %}
+<div class="row text-center mt-3">
+	<div class="col-lg-4 col-sm-6"><div class="badge badge-pill badge-warning">Batting Team : </div><h2>{{info['batting_team']}}</h2></div>
+	<div class="col-lg-4 col-sm-6"><div class="badge badge-pill badge-primary">Current Score : </div><h2>{{info['runs']}} / {{info['wickets']}}</h2></div>
+	<div class="col-lg-4 col-sm-6"><div class="badge badge-pill badge-success">Current Overs : </div><h2>{{info['overs']}}</h2></div>
+	<h1 class="col-12 col-sm-12">Predicted Score : <b>{{score}}</b></h1>
+</div>
+<div class="card-footer m-auto text-justify col-lg-6 col-sm-12">This Prediction was generated using <b class="text-warning">{{info['model']}}</b> which achieved a <b class="text-warning">Test Accuracy of {{model[info['model']]['accuracy']}}%</b> and a <b class="text-warning">Root Mean Squared Error (RMSE) of {{model[info['model']]['error']}}</b></div>
+
+<a href="/" class="btn btn-light m-auto"> Predict Another Score</a>
+{% endblock %}
