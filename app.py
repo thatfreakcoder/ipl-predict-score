@@ -32,7 +32,6 @@ def predict():
 	global predicted_score
 	global total_predictions
 	if request.method == 'POST':
-		total_predictions += 1
 		req = request.form
 		batting_team = req['batting_team']
 		bowling_team = req['bowling_team']
