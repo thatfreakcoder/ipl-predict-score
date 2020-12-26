@@ -49,4 +49,4 @@ def error(e):
 	return render_template("404.html", msg=e)
 
 if __name__ == '__main__':
-	app.run(debug=True, port=8000)
+	app.run(debug=True)
