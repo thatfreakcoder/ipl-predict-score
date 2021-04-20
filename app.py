@@ -44,6 +44,8 @@ def predict():
 		model = MODELS[req['model']]
 		predicted_score = str(predict_score(batting_team, bowling_team, runs, wickets, overs, runs_last_5, wickets_last_5, model))
 		return render_template('predict.html', score=predicted_score, info=dict(req), model=MODEL_INFO, total=total_predictions)
+	else:
+		return render_template('404.html', msg="500 No Prediction: Looks like you're here without a prediction.")
 
 @app.errorhandler(404)
 def error(e):
