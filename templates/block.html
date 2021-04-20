@@ -10,125 +10,129 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Lobster&family=Oxygen&display=swap" rel="stylesheet">
-{% endblock %}
-
-{% block title %}
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Lobster&family=Oxygen&display=swap" rel="stylesheet"> {% endblock %} {% block title %}
 <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='logo.ico')}}">
+
 <head>
-	<title>IPL Score Prediction</title>
+    <title>IPL Score Prediction</title>
 </head>
-{% endblock %}
-
-{% block meta %}
-<meta 
-	charset="utf-8"
-	>
-<meta 
-	name="author" 
-	content="Yuvraj Dagur"
-	>
-<meta 
-	name="keywords" 
-	content="ML, Machine Learning, IPL, Indian Premier League, IPL Score, IPL Prediction, Random Forest, Decision Tree, Neural Networks, Regression"
-	>
-<meta 
-	name="description" 
-	content="Machine Learning Webapp to predict First Innings Score of IPL 2020 using Regression."
-	>
-<meta
-	name="viewport" 
-	content="width=device-width, initial-scale=1.0"
-	>
-{% endblock %}
-
-{% block style %}
+{% endblock %} {% block meta %}
+<meta charset="utf-8">
+<meta name="author" content="Yuvraj Dagur">
+<meta name="keywords" content="ML, Machine Learning, IPL, Indian Premier League, IPL Score, IPL Prediction, Random Forest, Decision Tree, Neural Networks, Regression">
+<meta name="description" content="Machine Learning Webapp to predict First Innings Score of IPL 2020 using Regression.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> {% endblock %} {% block style %}
 <style type="text/css">
-	body {
-		background: url("{{url_for('static', filename='bg.jpg')}}");
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center top;
-		background-attachment: fixed;
-		color: white;
-	}
-	.header{
-		font-family: 'Josefin Sans', sans-serif;
-		text-shadow: 0 5px 15px black;
-		margin-top: 20px;		
-	}
-	.ml{
-		font-family: 'Lobster', cursive;
-		text-shadow: 0 5px 15px black;
-	}
-	.card{
-		background: rgba(10, 10, 10, 0.6);
-		margin-top: 20px!important;
-		font-family: 'Oxygen', sans-serif;
-		border-radius: 15px;
-		box-shadow: 0 7px 25px black;
-		color: white;
-	}
-	.footer{
-		background: rgba(10, 10, 10, 0.9);
-	}
-	.modal-content{
-		color: black;
-		border-radius: 20px;
-	}
-	.footer{
-		position: relative;
-		margin-top: 20px!important;
-		margin-bottom: 20px!important;
-	}
-	.text-coffee{
-		color: #BB5400;
-	}
-	.links a{
-		color: white!important
-	}
-	.link-button{
-		padding: 25px;
-		border-radius: 50%;
-		font-size: 40px;
-	}
-	#github{
-		background-color: #000;
-	}
-	#twitter{
-		background-color: #00acee;
-	}
-	#linkedin{
-		background-color: #0e76a8;
-	}
-	#instagram{
-		background: linear-gradient(#ffdc80, #f56040)
-	}
-	.badge {
-		color: white;
-	}
-	input, select{
-		width: 200px;
-		color: black;
-
-	}
+    body {
+        background: url("{{url_for('static', filename='bg.jpg')}}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top;
+        background-attachment: fixed;
+        color: white;
+    }
+    
+    .header {
+        font-family: 'Josefin Sans', sans-serif;
+        text-shadow: 0 5px 15px black;
+        margin-top: 20px;
+    }
+    
+    .ml {
+        font-family: 'Lobster', cursive;
+        text-shadow: 0 5px 15px black;
+    }
+    
+    .card {
+        background: rgba(10, 10, 10, 0.6);
+        margin-top: 20px!important;
+        font-family: 'Oxygen', sans-serif;
+        border-radius: 15px;
+        box-shadow: 0 7px 25px black;
+        color: white;
+    }
+    
+    .footer {
+        background: rgba(10, 10, 10, 0.9);
+    }
+    
+    .modal-content {
+        color: black;
+        border-radius: 20px;
+    }
+    
+    .footer {
+        position: relative;
+        margin-top: 20px!important;
+        margin-bottom: 20px!important;
+    }
+    
+    .text-coffee {
+        color: #BB5400;
+    }
+    
+    .links a {
+        color: white!important
+    }
+    
+    .link-button {
+        padding: 25px;
+        border-radius: 50%;
+        font-size: 40px;
+    }
+    
+    #github {
+        background-color: #000;
+    }
+    
+    #twitter {
+        background-color: #00acee;
+    }
+    
+    #linkedin {
+        background-color: #0e76a8;
+    }
+    
+    #instagram {
+        background: linear-gradient(#ffdc80, #f56040)
+    }
+    
+    .badge {
+        color: white;
+    }
+    
+    input,
+    select {
+        width: 200px;
+        color: black;
+    }
+    
+    .fork-img {
+        filter: drop-shadow(2px 15px 15px #000);
+        transition: transform 0.2s, filter 0.2s;
+    }
+    
+    .fork-img:hover {
+        filter: drop-shadow(2px 18px 18px #000);
+        transform: scale(1.1);
+    }
 </style>
-{% endblock %}
-
-{% block content %}
-	<div class="header text-center">
-		<h1>IPL Score Prediction using <br><span class='ml text-warning'>Machine Learning</span></h1>
-	</div>
-	<div class="card w-75 m-auto">
-		{% block subcontent %}
-		{% endblock %}
-	</div>
-	{% block footer %}
-	<div class="card footer w-75 m-auto">
-		{% include 'footer.html' %}
-		<hr>
-		<div class="badge badge-pill badge-success m-auto">Total Predictions : {{total}}</div>
-	</div>
-	{% endblock %}
-
-{% endblock %}
+{% endblock %} {% block content %}
+<div class="header text-center">
+    <h1>IPL Score Prediction using <br><span class='ml text-warning'>Machine Learning</span></h1>
+</div>
+<div class="position-absolute" style="right: 0;top: 0;">
+    <a href="https://github.com/thatfreakcoder/ipl-predict-score">
+        <img class="fork-img" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" alt="fork me">
+    </a>
+</div>
+<div class="card w-75 m-auto">
+    {% block subcontent %} {% endblock %}
+</div>
+{% block footer %}
+<div class="card footer w-75 m-auto">
+    {% include 'footer.html' %}
+    <hr>
+    <div class="badge badge-pill badge-success m-auto">Total Predictions : {{total}}</div>
+</div>
+{% endblock %} {% endblock %}
