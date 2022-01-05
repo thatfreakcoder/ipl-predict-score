@@ -1,8 +1,7 @@
-{% extends 'block.html' %}
-{% block subcontent %}
+{% extends 'block.html' %} {% block subcontent %}
 <div class="text-center text-capitalize">
-	<h1 class="text-danger"><i class="fa fa-exclamation-triangle"></i> OOPS</h1>
-	<h3>{{(msg | string)[15:46]}}</h3>
-	<a href="/" class="btn btn-primary">go back <i class="fa fa-home"></i></a>
+    <h1 class="text-danger"><i class="fa fa-exclamation-triangle"></i> OOPS</h1>
+    <h3 class="m-2 p-5">{{msg}}</h3>
+    <a href="/" class="btn btn-primary">go back <i class="fa fa-home"></i></a>
 </div>
 {% endblock %}
